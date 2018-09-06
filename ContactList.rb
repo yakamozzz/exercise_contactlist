@@ -1,59 +1,33 @@
 require "./contact"
 
-
-
 class ContactList
 
-
-
-  def initialize(contacts = [])
-
-    @contacts = contacts
-
-  end
+	def initialize(contacts = [])
+	 @contacts = contacts
+	end
 
 
 
-  #def add_contact(contact_to_add)
+#def add_contact(contact_to_add)
+#@contacts << contact_to_add
+#end
 
-    #@contacts << contact_to_add
-
-  #end
-
-
-
-  #   def add_contact(contact_to_add)
-
-  #    if contact_to_add.valid?
-
-  #       @contacts << contact_to_add
-
-  #     else
-
-  #      puts "Invalid contact"
-
-  #     end
-
-  # end
-
+#def add_contact(contact_to_add)
+#if contact_to_add.valid?
+#@contacts << contact_to_add
+#else
+#puts "Invalid contact"
+#end
+#end
 
 
   def add_contact(contact_to_add)
-
-    return "Invalid contact" unless contact_to_add.valid?
-
-
-
-    contact = self.search_by_name(contact_to_add.name)
-
-    if contact.nil?
-
-      @contacts << contact_to_add
-
+	return "Invalid contact" unless contact_to_add.valid?
+	contact = self.search_by_name(contact_to_add.name)
+	if contact.nil?
+		@contacts << contact_to_add
     else
-
       contact.numbers << contact_to_add.numbers
-
     end
 
   end
@@ -61,67 +35,39 @@ class ContactList
 
 
   def present
-
    @contacts.each { |contact| puts contact.format_contact }
-
   end
-
 
 
   def search_by_name(name)
-
     @contacts.each do |contact|
-
       if contact.name == name
-
         return contact
-
       end
-
     end
-
     nil
-
   end
-
 
 
   def search_name(name)
-
     puts "I am searching for #{name}"
-
-
-
     @contacts.each do |contact|
-
       if contact.name == name
-
         return contact.numbers.first
-
       end
-
     end
-
     nil
-
   end
-
 
 
   def search_number(numbers)
-
     @contacts.each  {|contact| contact.numbers.include?(numbers) ? (return contact.name) : (return nil) }
-
   end
-
 
 
   def valid_contactlist?
-
     !contact.name.strip.empty? && !contact.numbers.empty?
-
   end
-
 end
 
 
