@@ -1,3 +1,5 @@
+Exercise:
+
 1- Implement a class `Contact` that can be initialized with a name and a number
 2- Change the class to have a numbers array instead
 3- Add the instance method `add_number` that takes a string and adds it to the numbers array of the contact
